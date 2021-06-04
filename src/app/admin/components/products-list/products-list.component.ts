@@ -18,6 +18,7 @@ export class ProductsListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.fetchProducts()
   }
 
   fetchProducts() {
@@ -27,4 +28,11 @@ export class ProductsListComponent implements OnInit {
     })
   }
 
+  deleteProduct(id: string){
+    this.productsService.deleteProduct(id)
+    .subscribe(rta => {
+      console.log(rta)
+      this.fetchProducts()
+    })
+  }
 }
