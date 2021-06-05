@@ -17,6 +17,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 
 @NgModule({
@@ -38,7 +40,8 @@ import { MatListModule } from '@angular/material/list';
     MatSortModule,
     LayoutModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule, 
+    MatFormFieldModule
   ],
   exports: [
     MatButtonModule,
@@ -56,7 +59,8 @@ import { MatListModule } from '@angular/material/list';
     MatSortModule,
     LayoutModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule
   ]
 })
 export class MaterialModule { }
