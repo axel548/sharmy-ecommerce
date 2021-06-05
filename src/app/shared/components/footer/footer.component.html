@@ -34,7 +34,8 @@
           </mat-form-field>
           <button (click)="sendMail()" [disabled]="emailField.invalid" mat-raised-button
             color="accent">Suscribirse</button>
-        </div>xz
+            <!--<p *ngIf="emailField.invalid && emailField.dirty">Escriba un email valido</p>-->
+        </div>
       </div>
     </div>
   </div>

@@ -21,14 +21,19 @@
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <input placeholder="Price" formControlName="price" matInput type="text">
+                        <input placeholder="Price" formControlName="price" matInput type="price">
                     </mat-form-field>
+                    <div *ngIf="priceField!.errors && priceField!.dirty">
+                        <mat-error *ngIf="priceField!.hasError('required')">el campo es requerido</mat-error>
+                        <mat-error *ngIf="priceField!.hasError('price_invalid')">el precio es invalido</mat-error>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs">
                     <mat-form-field>
-                        <textarea placeholder="Text" formControlName="id" name="" id="" cols="30" rows="10" matInput></textarea>
+                        <textarea placeholder="Text" formControlName="description" cols="30" rows="10"
+                            matInput></textarea>
                     </mat-form-field>
                 </div>
             </div>

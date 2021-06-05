@@ -14,7 +14,8 @@ export class FooterComponent implements OnInit {
   constructor() { 
     this.emailField = new FormControl('', [
       Validators.required,
-      Validators.email
+      Validators.email,
+      //Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)
     ])
     /*this.emailField.valueChanges.subscribe(value => {
       console.log(value)
