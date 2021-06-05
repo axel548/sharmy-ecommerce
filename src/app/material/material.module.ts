@@ -18,6 +18,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+
+
 
 
 
@@ -41,7 +44,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LayoutModule,
     MatSidenavModule,
     MatListModule, 
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatStepperModule
   ],
   exports: [
     MatButtonModule,
@@ -60,7 +64,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LayoutModule,
     MatSidenavModule,
     MatListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatStepperModule
   ]
 })
 export class MaterialModule { }

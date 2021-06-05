@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 //import { CartComponent } from './components/cart/cart.component';
 
 import { MaterialModule } from './../material/material.module';
+import { CartPipe } from './pipes/cart/cart.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MaterialModule } from './../material/material.module';
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
+    CartPipe,
     //CartComponent
   ],
   exports: [
@@ -24,6 +26,7 @@ import { MaterialModule } from './../material/material.module';
     HighlightDirective,
     HeaderComponent,
     FooterComponent,
+    CartPipe
   ],
   imports: [
     CommonModule,
