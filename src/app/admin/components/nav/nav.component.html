@@ -9,7 +9,7 @@
       <a mat-list-item routerLink="/admin/">Home</a>
       <a mat-list-item routerLink="/admin/table">Inventario</a>
       <a mat-list-item routerLink="/admin/products">Productos</a>
-      <button mat-list-item (click)="logout()">Cerrar Secsión</button>
+      <a mat-list-item (click)="logout()">Cerrar Sesión</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -22,7 +22,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>platzi-store</span>
+      <span>Sharmy</span>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

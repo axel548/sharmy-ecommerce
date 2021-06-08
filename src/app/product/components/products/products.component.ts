@@ -10,6 +10,8 @@ import { Product } from '../../../core/models/product.model';
 export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
+  category1: string = 'Camiseta';
+  category2: string = 'Sticker 1';
 
   constructor(
     private productService: ProductsService

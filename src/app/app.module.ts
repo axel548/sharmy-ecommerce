@@ -16,6 +16,7 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import {environment} from './../environments/environment'
+import { SwiperModule } from 'swiper/angular';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {environment} from './../environments/environment'
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

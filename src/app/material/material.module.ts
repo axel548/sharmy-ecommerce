@@ -19,7 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -45,7 +45,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatSidenavModule,
     MatListModule, 
     MatFormFieldModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTabsModule
   ],
   exports: [
     MatButtonModule,
@@ -65,7 +66,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatSidenavModule,
     MatListModule,
     MatFormFieldModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTabsModule
   ]
 })
 export class MaterialModule { }

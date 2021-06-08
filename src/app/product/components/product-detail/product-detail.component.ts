@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import { ProductsService } from './../../../core/services/products/products.service';
 import { Product } from '../../../core/models/product.model';
-
+import { CartService } from 'src/app/core/services/cart.service';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -15,7 +15,8 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
@@ -59,5 +60,11 @@ export class ProductDetailComponent implements OnInit {
       console.log(rta)
     })
   }
+
+  addCart(){
+    console.log('añadir al carrito');
+    this.cartService.addCart(this.product)
+    //this.productClicked.emit(this.product.id)
+}
 
 }

@@ -1,0 +1,10 @@
+.swiper-container {
+    width: 300px;
+}
+
+
+@media (min-width: 576px)  {
+    .swiper-container {
+        width: 600px;
+    }
+}

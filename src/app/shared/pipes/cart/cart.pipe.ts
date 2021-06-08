@@ -9,7 +9,9 @@ export class CartPipe implements PipeTransform {
 
   products!: Product[];
 
-  constructor(private cartService: CartService){
+  constructor(
+    private cartService: CartService
+  ){
   }
 
   transform(product: any, args?: any): any {

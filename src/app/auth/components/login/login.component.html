@@ -1,27 +1,46 @@
-<form [formGroup]="form" (ngSubmit)="login($event)">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="row">
-          <div class="col-xs">
-            <mat-form-field>
-              <input placeholder="email" formControlName="email" matInput type="email">
-            </mat-form-field>
+<div class="login-root">
+  <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+    <div class="box-root padding-top--20 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+      <div class="box-root padding-bottom--24 flex-flex flex-justifyContent--center">
+        <h1>Login</h1>
+      </div>
+      <div class="formbg-outer">
+        <div class="formbg">
+          <div class="formbg-inner padding-horizontal--48">
+            <span class="padding-bottom--15">Sign in to your account</span>
+            <!-- Begin Form -->
+            <form id="stripe-login" [formGroup]="form" (ngSubmit)="login($event)">
+              <div class="field padding-bottom--24">
+                <label for="email">Email</label>
+                <input formControlName="email" type="email">
+              </div>
+              <div class="field padding-bottom--24">
+                <div class="grid--50-50">
+                  <label for="password">Password</label>
+                  <div class="reset-pass">
+                    <a href="#">Forgot your password?</a>
+                  </div>
+                </div>
+                <input formControlName="password" type="password">
+              </div>
+              <div class="field padding-bottom--24">
+                <button [disabled]="form.invalid" mat-raised-button color="primary" type="submit">Ingresar</button>
+              </div>
+            </form>
+            <!-- End Form -->
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs">
-            <mat-form-field>
-              <input placeholder="password" formControlName="password" matInput type="password">
-            </mat-form-field>
+        <!-- Begin Footer -->
+        <div class="footer-link padding-top--24">
+          <span>Don't have an account? <a routerLink="/auth/register">Sign up</a></span>
+          <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+            <span><a href="#">© Sharmy</a></span>
+            <span><a href="#">Contact</a></span>
+            <span><a href="#">Privacy & terms</a></span>
           </div>
         </div>
-      </mat-card-content>
-      <mat-card-actions>
-        <button [disabled]="form.invalid" mat-raised-button type="submit">Ingresar</button>
-      </mat-card-actions>
-    </mat-card>
-    
-  </form>
+         <!-- End Footer -->
+      </div>
+    </div>
+  </div>
+</div>

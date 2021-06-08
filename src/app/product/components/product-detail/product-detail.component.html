@@ -1,15 +1,18 @@
-<div *ngIf="product">
-    <div>
-        <img [src]="product.image" alt="">
-    </div>
-    <div>
-        <ul>
-            <li>Nombre: {{product.title}} </li>
-            <li>Precio: {{product.price | currency}} </li>
-        </ul>
-        <p> {{product.description}} </p>
-    </div>
-    <button (click)="createProduct()">crear</button>
-    <button (click)="updateProduct()">update</button>
-    <button (click)="deleteProduct()">delete</button>
+<div class="container">
+    <mat-card *ngIf="product" class="back-w">
+        <mat-card-header>
+            <mat-card-title>{{product.title | uppercase}}</mat-card-title>
+            <mat-card-subtitle style="color: black;">{{product.price | currency}}</mat-card-subtitle>
+        </mat-card-header>
+        <div class="crop-image">
+            <img [src]="product.image" alt="">
+        </div>
+        <mat-card-content>
+            <p>{{product.description}}</p>
+        </mat-card-content>
+    </mat-card>
+    
+    <mat-card-actions class="container-btn">
+        <button mat-raised-button color="primary" (click)="addCart()">Agregar al carrito</button>
+    </mat-card-actions>
 </div>

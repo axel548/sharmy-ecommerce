@@ -2,9 +2,9 @@
     <mat-toolbar-row>
         <div class="row between-xs middle-xs header-row">
             <nav>
-                <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
-                <a mat-button routerLink="/products" routerLinkActive="active">Products</a>
-                <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+                <a mat-button routerLink="/home" routerLinkActive="active" color="basic">Home</a>
+                <a mat-button routerLink="/products" routerLinkActive="active" color="basic">Products</a>
+                <a mat-button routerLink="/contact" routerLinkActive="active" color="basic">Contact</a>
             </nav>
             <a routerLink="/order" mat-raised-button [matBadge]="total$ | async" matBadgeColor="warn">
                 <mat-icon>shopping_cart</mat-icon>

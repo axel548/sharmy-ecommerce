@@ -13,6 +13,9 @@
     margin-right: auto;
     margin-left: auto;
 }
+.footer {
+    width: 100%;
+}
 
 @media (min-width: 576px)  {
     .product-grid {
@@ -26,3 +29,4 @@
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

@@ -1,0 +1,26 @@
+.crop-image {
+  display: block;
+  height: 300px;
+  width: 100%;
+  img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    object-position: center;
+  }
+}
+
+.back-w {
+  background-color: #fff;
+  color: black;
+  width: 400px;
+  margin: 30px 50px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.container-btn{
+  margin: 30px 0;
+}
