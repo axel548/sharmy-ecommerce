@@ -1,6 +1,7 @@
 # Sharmy
 
-![](https://i.ibb.co/D1LKC3X/logo.jpg)
+![](https://i.ibb.co/qFbxppR/Logo.jpg)
+
 > 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 
