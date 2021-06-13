@@ -7,19 +7,20 @@ import { CartService } from 'src/app/core/services/cart.service';
 })
 export class CartPipe implements PipeTransform {
 
-  products!: Product[];
+  product!: Product[];
 
   constructor(
     private cartService: CartService
-  ){
+  ) {
   }
 
   transform(product: any, args?: any): any {
     var total = 0;
     this.cartService.cart$.subscribe(products => {
       products.forEach((elemento) => {
-        if(elemento.id === product.id){
+        if (elemento.id === product.id) {
           total += 1;
+          // elemento.cant += 1;
         }
       });
     });
@@ -29,5 +30,5 @@ export class CartPipe implements PipeTransform {
 }
 
 
-  
+
 

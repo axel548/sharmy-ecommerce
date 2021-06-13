@@ -1,10 +1,17 @@
+@import "~swiper/swiper-bundle";
+
+.container {
+  width: 750px;
+}
 .swiper-container {
-    width: 300px;
+  width: 100%;
 }
 
-
-@media (min-width: 576px)  {
-    .swiper-container {
-        width: 600px;
-    }
+@media (max-width: 1024px) {
+  .container {
+    width: 550px;
+  }
+  .swiper-container {
+    width: 80%;
+  }
 }

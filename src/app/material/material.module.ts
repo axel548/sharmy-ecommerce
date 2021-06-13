@@ -20,7 +20,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -46,7 +46,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatListModule, 
     MatFormFieldModule,
     MatStepperModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDividerModule,
   ],
   exports: [
     MatButtonModule,
@@ -67,7 +68,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatListModule,
     MatFormFieldModule,
     MatStepperModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDividerModule,
   ]
 })
 export class MaterialModule { }

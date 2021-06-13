@@ -12,23 +12,28 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class OrderComponent implements OnInit {
 
-  products: number = 0;
   secondFormGroup!: FormGroup;
   isOptional = false;
+  total?: number
+
   products$: Observable<Product[]>;
-  displayedColumns: string[] = ['image', 'title', 'price', 'actions']
+  displayedColumns: string[] = ['image', 'title', 'price', 'actions', 'total']
 
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder
   ) {
-    this.products$ = this.cartService.cart$
-      .pipe(map((products: Product[]) => {
-        const distintos = [...new Set(products)];
-        console.log(distintos)
-        return distintos;
-      }));
+    this.products$ = this.cartService.cart$.pipe(map((products: Product[]) => {
+      const distintos = [...new Set(products)];
+      console.log(distintos)
+      return distintos;
+    }))
+    // this.total = this.cartService.suma()
+    // console.log(this.cartService.suma())
+    // console.log(this.cartService.total)
   }
+
+  
   ngOnInit(): void {
     this.secondFormGroup = this.formBuilder.group({
       secondCtrl: ['', Validators.required]

@@ -9,9 +9,12 @@ import { Product } from '../../../core/models/product.model';
 })
 export class ProductsComponent implements OnInit {
 
-  products: Product[] = [];
-  category1: string = 'Camiseta';
-  category2: string = 'Sticker 1';
+  products: Product[]= [];
+  category1: string = 'vestido';
+  category2: string = 'bikini';
+  category3: string = 'falda';
+  category4: string = 'kimono';
+  category5: string = 'salidabaño';
 
   constructor(
     private productService: ProductsService
@@ -19,6 +22,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchProducts()
+    console.log(this.products)
   }
 
   clickProduct(id: number) {
@@ -26,9 +30,22 @@ export class ProductsComponent implements OnInit {
     console.log(id);
   }
 
-  fetchProducts(){
-    this.productService.getAllProducts().subscribe(products => {
-      this.products = products;
-    })
+  fetchProducts() {
+    /* this.productService.getAllProducts().subscribe(products => {
+       this.cats = products;
+     })*/
+    this.productService.getAllProducts().subscribe(prodSnapshot => {
+      prodSnapshot.forEach((producto: any) => {
+        this.products.push({
+          id: producto.payload.doc.id,
+          image: producto.payload.doc.data()['image'],
+          title: producto.payload.doc.data()['title'],
+          price: producto.payload.doc.data()['price'],
+          category: producto.payload.doc.data()['category'],
+          description: producto.payload.doc.data()['description'],
+          cant: producto.payload.doc.data()['cant']
+        });
+      });
+    });
   }
 }

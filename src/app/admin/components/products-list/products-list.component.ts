@@ -24,7 +24,7 @@ export class ProductsListComponent implements OnInit {
   fetchProducts() {
     this.productsService.getAllProducts()
     .subscribe(products => {
-      this.product = products
+      //this.product = products
     })
   }
 

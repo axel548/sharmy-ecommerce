@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.side {
+    margin: 100px 50px;
+}
+
+@media (max-width: 1024px){
+    .side {
+        margin: 100px 30px;
+    }
+}
+

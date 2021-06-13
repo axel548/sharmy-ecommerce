@@ -7,9 +7,9 @@
         </div>
     </mat-tab>
 
-    <mat-tab label="Second">
+    <mat-tab label="Vestidos">
         <div *ngFor="let product of products">
-            <div *ngIf="product.title === category2">
+            <div *ngIf="product.category === category1">
                 <div class="product-grid">
                     <app-product (productClicked)="clickProduct($event)" [product]="product">
                     </app-product>
@@ -18,9 +18,42 @@
         </div>
     </mat-tab>
 
-    <mat-tab label="Third">
+    <mat-tab label="Bikinis">
         <div *ngFor="let product of products">
-            <div *ngIf="product.title === category1">
+            <div *ngIf="product.category === category2">
+                <div class="product-grid">
+                    <app-product (productClicked)="clickProduct($event)" [product]="product">
+                    </app-product>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Faldas">
+        <div *ngFor="let product of products">
+            <div *ngIf="product.category === category3">
+                <div class="product-grid">
+                    <app-product (productClicked)="clickProduct($event)" [product]="product">
+                    </app-product>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Kimono">
+        <div *ngFor="let product of products">
+            <div *ngIf="product.category === category4">
+                <div class="product-grid">
+                    <app-product (productClicked)="clickProduct($event)" [product]="product">
+                    </app-product>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Salida de Baño">
+        <div *ngFor="let product of products">
+            <div *ngIf="product.category === category5">
                 <div class="product-grid">
                     <app-product (productClicked)="clickProduct($event)" [product]="product">
                     </app-product>

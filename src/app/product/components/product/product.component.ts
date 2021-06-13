@@ -8,7 +8,8 @@ import {
     SimpleChanges, 
     OnInit, 
     DoCheck, 
-    OnDestroy
+    OnDestroy,
+    Injectable
 } from '@angular/core';
 import { CartService } from 'src/app/core/services/cart.service';
 import {Product} from '../../../core/models/product.model';
@@ -19,7 +20,7 @@ import {Product} from '../../../core/models/product.model';
     styleUrls: ['./product.component.scss']
 })
 
-export class ProductComponent implements OnInit, DoCheck, OnDestroy {
+export class ProductComponent implements OnInit {
 
     @Input()
     product!: Product;
@@ -27,12 +28,10 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
     @Output()
     productClicked: EventEmitter<any> = new EventEmitter();
 
-    today = new Date();
-
     constructor(
         private cartService: CartService
     ){
-        console.log('1. constructor');
+        // console.log('1. constructor');
     }
 
     /*ngOnChanges(changes: SimpleChanges){
@@ -40,19 +39,20 @@ export class ProductComponent implements OnInit, DoCheck, OnDestroy {
         console.log(changes);
     }*/
     ngOnInit(){
-        console.log('3. ngOnInit');
+        // console.log('3. ngOnInit');
     }
 
-    ngDoCheck(){
-        console.log('4. ngDoCheck');
-    }
+    // ngDoCheck(){
+    //     console.log('4. ngDoCheck');
+    // }
 
-    ngOnDestroy(){
-        console.log('5. ngOnDestroy')
-    }
+    // ngOnDestroy(){
+    //     console.log('5. ngOnDestroy')
+    // }
 
     addCart(){
         console.log('añadir al carrito');
+        // this.product.cant += 1
         this.cartService.addCart(this.product)
         //this.productClicked.emit(this.product.id)
     }

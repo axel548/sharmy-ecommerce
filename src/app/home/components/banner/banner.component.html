@@ -1,10 +1,12 @@
-<div class="swiper-container">
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let img of images">
-            <img [src]="img" alt="imagen de banner">
+<div class="container">
+    <div class="swiper-container">
+        <!-- <div class="swiper-button-prev"></div> -->
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let img of images">
+                <img [src]="img" alt="imagen de banner">
+            </div>
         </div>
+        <!-- <div class="swiper-button-next"></div> -->
+        <div class="swiper-scrollbar"></div>
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-scrollbar"></div>
 </div>
