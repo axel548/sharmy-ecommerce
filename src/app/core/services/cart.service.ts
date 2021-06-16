@@ -39,30 +39,16 @@ export class CartService {
 
 	}
 
-	suma() {
+	suma(): number {
+		this.total = 0
 		if (this.products.length === 0) {
 			return this.total = 0
 		} else {
-			for (let i = 0; i <= this.products.length; i++) {
-				this.total += (this.products[i].cant * this.products[i].price)
-			}
+			this.products.forEach(element => {
+				this.total += element.price * element.cant
+			})
 			return this.total
 		}
 	}
 
-	// distintos() {
-	// 	const resultado = Array.from(new Set(this.products.map(s => s.id)))
-	// 		.map(id => {
-	// 			return {
-	// 				id: id,
-	// 				title: this.products.find(s => s.id === id)?.title,
-	// 				image: this.products.find(s => s.id === id)?.image,
-	// 				price: this.products.find(s => s.id === id)?.price,
-	// 				category: this.products.find(s => s.id === id)?.category,
-	// 				description: this.products.find(s => s.id === id)?.description,
-	// 				cant: this.products.find(s => s.id === id)?.cant,
-	// 			};
-	// 		});
-	// 	console.log(resultado)
-	// }
 }

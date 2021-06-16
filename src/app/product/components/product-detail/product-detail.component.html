@@ -1,18 +1,28 @@
 <div class="container">
-    <mat-card *ngIf="product" class="back-w">
-        <mat-card-header>
-            <mat-card-title>{{product.title | uppercase}}</mat-card-title>
-            <mat-card-subtitle style="color: black;">{{product.price | currency}}</mat-card-subtitle>
-        </mat-card-header>
-        <div class="crop-image">
-            <img [src]="product.image" alt="">
+    <div class="row" *ngIf="product">
+        <div class="image">
+            <!-- <mat-card> -->
+                <div class="crop-image">
+                    <img [src]="product.image" alt="">
+                </div>
+            <!-- </mat-card> -->
         </div>
-        <mat-card-content>
-            <p>{{product.description}}</p>
-        </mat-card-content>
-    </mat-card>
-    
-    <mat-card-actions class="container-btn">
-        <button mat-raised-button color="primary" (click)="addCart()">Agregar al carrito</button>
-    </mat-card-actions>
+        <div class="card">
+            <mat-card  class="back-w">
+                <mat-card-header>
+                    <mat-card-title>{{product.title | uppercase}}</mat-card-title>
+                    <mat-card-subtitle style="color: black;">{{product.price | currency}}</mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <p class="description">{{product.description}}</p>
+                </mat-card-content>
+                <mat-card-actions class="container-btn">
+                    <button mat-raised-button color="primary" (click)="addCart()">
+                        <mat-icon>shopping_cart</mat-icon> Comprar
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
 </div>

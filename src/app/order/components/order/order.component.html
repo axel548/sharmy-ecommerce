@@ -25,6 +25,9 @@
             <button mat-mini-fab color="warn" class="btn-cant">-</button>
             <label><b> {{ product.cant }} </b> </label>
             <button mat-mini-fab color="warn" class="btn-cant">+</button>
+            <button mat-mini-fab color="accent">
+              <mat-icon>delete</mat-icon>
+            </button>
           </td>
         </ng-container>
         <ng-container matColumnDef="total">
@@ -38,7 +41,7 @@
       </table>
     </div>
     <mat-list>
-      <mat-list-item>Total de compra: {{total}} </mat-list-item>
+      <mat-list-item>Total de compra: {{total | currency: 'Q '}} </mat-list-item>
       <mat-divider></mat-divider>
     </mat-list>
   </mat-step>

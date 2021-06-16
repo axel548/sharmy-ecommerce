@@ -7,6 +7,11 @@ footer {
   margin-top: 20px;
   background-color: mat-color($primary);
   width: 100%;
+.container{
+	.row{
+		margin-right: 0; 
+	}
+}
   .box {
     h3 {
       color: white;

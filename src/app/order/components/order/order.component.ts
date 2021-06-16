@@ -14,7 +14,7 @@ export class OrderComponent implements OnInit {
 
   secondFormGroup!: FormGroup;
   isOptional = false;
-  total?: number
+  total = 0
 
   products$: Observable<Product[]>;
   displayedColumns: string[] = ['image', 'title', 'price', 'actions', 'total']
@@ -38,5 +38,6 @@ export class OrderComponent implements OnInit {
     this.secondFormGroup = this.formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
+    this.total = this.cartService.suma()
   }
 }
