@@ -5,6 +5,8 @@ import { ProductsService } from './../../../core/services/products/products.serv
 import { Product } from '../../../core/models/product.model';
 import { CartService } from 'src/app/core/services/cart.service';
 import { Observable, PartialObserver } from 'rxjs';
+
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -25,14 +27,13 @@ export class ProductDetailComponent implements OnInit {
       const id = params.id;
       this.fetchProduct(id)
     });
-    
-    console.log(this.product)
   }
 
   fetchProduct(id: string) {
     this.productsService.getProduct(id).subscribe(producto => {
       this.product = producto
       this.product.id = id
+      console.log(this.product)
     })
   }
 

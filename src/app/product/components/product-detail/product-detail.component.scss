@@ -12,12 +12,17 @@
       width: 100%;
       object-position: center;
     }
+	@media (max-width: 768px){
+		display: block;
+	}
+
   }
   .card {
     .description{
       margin: 20px;
     }
   }
+
 }
 .back-w {
   background-color: #fff;
@@ -32,4 +37,9 @@
 }
 .container-btn {
   margin: 30px 0;
+}
+
+.sizes{
+  display: flex;
+  justify-content: space-between;
 }

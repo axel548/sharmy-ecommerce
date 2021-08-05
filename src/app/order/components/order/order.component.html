@@ -1,80 +1,92 @@
-<mat-horizontal-stepper class="stepper">
+<mat-horizontal-stepper [linear]="isLinear" #stepper class="stepper">
   <!-- Cart of products -->
   <mat-step>
     <ng-template matStepLabel>Sus productos</ng-template>
     <div *ngIf="(products$ | async) as products">
-      <p *ngIf="products.length === 0" class="consult-prod"><b>No hay productos</b></p>
-      <table mat-table [dataSource]="products" class="mat-elevation-z8 products-table">.
-        <ng-container matColumnDef="image">
-          <th mat-header-cell *matHeaderCellDef>Image</th>
-          <td mat-cell *matCellDef="let product">
-            <img class="image" [src]="product.image" width="80" height="80">
-          </td>
-        </ng-container>
-        <ng-container matColumnDef="title">
-          <th mat-header-cell *matHeaderCellDef>Title</th>
-          <td mat-cell *matCellDef="let product">{{product.title}}</td>
-        </ng-container>
-        <ng-container matColumnDef="price">
-          <th mat-header-cell *matHeaderCellDef>price</th>
-          <td mat-cell *matCellDef="let product">{{product.price | currency: 'Q '}}</td>
-        </ng-container>
-        <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef>Actions</th>
-          <td mat-cell *matCellDef="let product">
-            <button mat-mini-fab color="warn" class="btn-cant">-</button>
-            <label><b> {{ product.cant }} </b> </label>
-            <button mat-mini-fab color="warn" class="btn-cant">+</button>
-            <button mat-mini-fab color="accent">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </td>
-        </ng-container>
-        <ng-container matColumnDef="total">
-          <th mat-header-cell *matHeaderCellDef>Total</th>
-          <td mat-cell *matCellDef="let product">
-            {{product.price * product.cant | currency: 'Q '}}
-          </td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+      <ng-template *ngIf="products.length === 0; then NotProducts; else Products">
+      </ng-template>
+
+      <ng-template #NotProducts>
+        <p class="consult-prod"><b>No hay productos</b></p>
+      </ng-template>
+
+      <ng-template #Products>
+        <table mat-table [dataSource]="products" class="mat-elevation-z8 products-table">.
+          <ng-container matColumnDef="image">
+            <th mat-header-cell *matHeaderCellDef>Image</th>
+            <td mat-cell *matCellDef="let product">
+              <img class="image" [src]="product.image" width="80" height="80">
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef>Title</th>
+            <td mat-cell *matCellDef="let product">{{product.title}}</td>
+          </ng-container>
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>price</th>
+            <td mat-cell *matCellDef="let product">{{product.price | currency: 'Q '}}</td>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let product">
+              <button mat-mini-fab color="warn" class="btn-cant" (click)="subtractProd(product)">-</button>
+              <label><b> {{ product.cant }} </b> </label>
+              <button mat-mini-fab color="warn" class="btn-cant" (click)="addProd(product)">+</button>
+              <button mat-mini-fab color="accent" (click)="deleteProd(product.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef>Total</th>
+            <td mat-cell *matCellDef="let product">
+              {{product.price * product.cant | currency: 'Q '}}
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <table class="total-table" *ngIf="(total$ | async) as total" >
+          <th>Total de compra</th>
+          <td> {{total | currency: 'Q '}}</td>
+        </table>
+      </ng-template>
     </div>
-    <mat-list>
-      <mat-list-item>Total de compra: {{total | currency: 'Q '}} </mat-list-item>
-      <mat-divider></mat-divider>
-    </mat-list>
+    <!--End  Cart of products -->
   </mat-step>
   <!-- Information Person -->
   <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Datos Personales</ng-template>
+    <ng-template matStepLabel>Datos Personales</ng-template>
+    <form [formGroup]="secondFormGroup" class="form">
 
-      <div class="row">
-        <div class="col-xs">
-          <mat-form-field>
-            <mat-label>Nombre</mat-label>
-            <input matInput formControlName="secondCtrl" required>
-          </mat-form-field>
+      <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre Completo</mat-label>
+              <input matInput placeholder="">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <mat-form-field appearance="fill">
+              <mat-label>No. de Telefono</mat-label>
+              <span matPrefix>+502 &nbsp;</span>
+              <input matInput type="tel" placeholder="5555-5555">
+              <mat-icon matSuffix>mode_edit</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <mat-form-field appearance="outline">
+              <mat-label>Correo Electrónic</mat-label>
+              <input matInput placeholder="">
+            </mat-form-field>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs">
-          <mat-form-field>
-            <mat-label>No. de Telefono</mat-label>
-            <input matInput formControlName="secondCtrl" required>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs">
-          <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="secondCtrl" required>
-          </mat-form-field>
-        </div>
-      </div>
-
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
@@ -85,8 +97,19 @@
   <mat-step>
     <ng-template matStepLabel>Pago</ng-template>
     <mat-radio-group aria-label="Selecione un método de pago">
-      <mat-radio-button value="1">Deposito Bancario</mat-radio-button>
-      <mat-radio-button value="2">Contra entrega</mat-radio-button>
+      <mat-radio-button [(ngModel)]="state" class="radio-group" value="false">Deposito Bancario</mat-radio-button>
+      <mat-radio-button [(ngModel)]="state" class="radio-group" value="true">Contra entrega</mat-radio-button>
     </mat-radio-group>
+
+    <ng-template *ngIf="state === true; then UponDelivery; else BankDeposit">
+    </ng-template>
+
+    <ng-template #BankDeposit>
+      <p>Deposito de Banco</p>
+    </ng-template>
+
+    <ng-template #UponDelivery>
+      <p>Contra Entrega</p>
+    </ng-template>
   </mat-step>
 </mat-horizontal-stepper>

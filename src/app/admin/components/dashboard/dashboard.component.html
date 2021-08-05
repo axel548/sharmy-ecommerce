@@ -1,24 +1,50 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+<section class="home-section">
+    <div class="home-content">
+        <div class="overview-boxes">
+            <div class="box">
+                <div class="right-side">
+                    <div class="box-topic">Total Order</div>
+                    <div class="number">{{order.length}}</div>
+                    <div class="indicator">
+                        <span class="material-icons up arrow">arrow_upward</span>
+                        <span class="text">Up from yesterday</span>
+                    </div>
+                </div>
+                <span class="bx material-icons cart">shopping_cart</span>
+            </div>
+            <div class="box">
+                <div class="right-side">
+                    <div class="box-topic">Total Sales</div>
+                    <div class="number">38,876</div>
+                    <div class="indicator">
+                        <span class="material-icons up arrow">arrow_upward</span>
+                        <span class="text">Up from yesterday</span>
+                    </div>
+                </div>
+                <span class="material-icons cart two">add_shopping_cart</span>
+            </div>
+            <div class="box">
+                <div class="right-side">
+                    <div class="box-topic">Total Profit</div>
+                    <div class="number">$12,876</div>
+                    <div class="indicator">
+                        <span class="material-icons up arrow">arrow_upward</span>
+                        <span class="text">Up from yesterday</span>
+                    </div>
+                </div>
+                <span class="material-icons cart three">shopping_cart</span>
+            </div>
+            <div class="box">
+                <div class="right-side">
+                    <div class="box-topic">Total Products</div>
+                    <div class="number">{{product.length}}</div>
+                    <div class="indicator">
+                        <span class="material-icons down arrow">arrow_downward</span>
+                        <span class="text">Down From Today</span>
+                    </div>
+                </div>
+                <span class="material-icons cart four">production_quantity_limits</span>
+            </div>
+        </div>
+    </div>
+</section>

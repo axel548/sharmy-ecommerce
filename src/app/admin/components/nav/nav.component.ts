@@ -4,6 +4,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import {MatDialog} from '@angular/material/dialog';
+import { LogoutDialogComponent } from 'src/app/shared/components/logout-dialog/logout-dialog.component';
 
 @Component({
   selector: 'app-nav',
@@ -21,14 +23,30 @@ export class NavComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private auth: AuthService,
-    private router: Router
-    ) {}
+    private router: Router,
+    public dialog: MatDialog
+  ) { }
 
-  logout(){
+  logout() {
     this.auth.logout()
-    .then(() => {
-      this.router.navigate(['./home'])
+      .then(() => {
+        this.router.navigate(['./home'])
+      })
+  }
+
+  openDialog():void {
+    const dialogRef = this.dialog.open(LogoutDialogComponent, {
+      width: '350px',
+      data: {message: '¿Desea Cerrar Sesión?', btn: 'Cerrar Sesión'}
+    })
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res)
+      if (res) {
+        console.log('Producto eliminado')
+        this.logout()
+      }
     })
   }
 
+  // "./node_modules/bootstrap/dist/css/bootstrap.min.css",
 }

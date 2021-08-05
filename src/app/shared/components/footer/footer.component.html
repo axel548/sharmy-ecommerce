@@ -1,4 +1,4 @@
-<footer>
+<!-- <footer>
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-4">
@@ -34,9 +34,61 @@
             </mat-form-field>
             <button (click)="sendMail()" [disabled]="emailField.invalid" mat-raised-button
               color="accent">Suscribirse</button>
-              <!--<p *ngIf="emailField.invalid && emailField.dirty">Escriba un email valido</p>-->
+              <!--<p *ngIf="emailField.invalid && emailField.dirty">Escriba un email valido</p>
           </div>
         </div>
       </div>
     </div>
+</footer> -->
+
+
+<footer>
+  <div class="row">
+    <div class="col">
+      <img src="assets/images/logo.jpg" class="logo">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus placeat cumque eligendi natus consectetur quisquam quaerat saepe fuga obcaecati possimus dolor asperiores fugit sit molestiae enim, aliquam sint earum. Beatae!</p>
+    </div>
+    <div class="col">
+      <h3>Office <div class="underline"><span></span></div>
+      </h3>
+      <p>Mixco, Zona 6, Guatemala</p>
+      <p class="email-id">sharmy@gmail.com</p>
+      <h4>+502 - 45287145</h4>
+    </div>
+    <div class="col">
+      <h3>Links <div class="underline"><span></span></div>
+      </h3>
+      <ul>
+        <li>Home</li>
+        <li>Services</li>
+        <li>About Us</li>
+        <li>Features</li>
+        <li>Contacts</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Subscribe <div class="underline"><span></span></div>
+      </h3>
+      <form>
+        <span class="material-icons">mail_outline</span>
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">
+          <span class="material-icons">arrow_forward</span>
+        </button>
+      </form>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/sharmy.gt/" target="_blank">
+          <mat-icon svgIcon="instagram" class="svg-icons"> </mat-icon>
+        </a>
+
+        <a href="https://www.facebook.com/Sharmygt-114028513792024" target="_blank">
+          <mat-icon svgIcon="facebook" class="svg-icons"> </mat-icon>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <p class="copyright">Sharmy © 2021 - All Right Reserved</p>
 </footer>

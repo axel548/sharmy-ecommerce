@@ -13,50 +13,34 @@ import { map } from 'rxjs/operators';
 })
 export class ProductsService {
 
+  COLLECTION_PRODUCTS = 'products'
+  COLLECTION_ORDERS = 'pedido'
+
   constructor(
-    private http: HttpClient,
     private firestore: AngularFirestore
   ) { }
 
-  /*getAllProducts(){
-    return this.http.get<Product[]>(environment.url_api)
-  }*/
+  getAllOrders() {
+    return this.firestore.collection(this.COLLECTION_ORDERS).snapshotChanges();
+  }
 
   getAllProducts() {
-    return this.firestore.collection('products').snapshotChanges();
-
+    return this.firestore.collection(this.COLLECTION_PRODUCTS).snapshotChanges();
   }
 
-  // getProduct(id: string){
-  //   return this.http.get<Product>(`${environment.url_api}${id}`)
-  // }
   getProduct(documentId: string) {
-    return  this.firestore.collection('products').doc(documentId).valueChanges()
-    // .get().pipe(map(doc => {
-    //   if (doc.exists) {
-    //     // console.log("Document data: ", doc.data())
-    //     return doc.data()
-    //   } else {
-    //     console.log("No such document")
-    //   }
-    // }))
+    return  this.firestore.collection(this.COLLECTION_PRODUCTS).doc(documentId).valueChanges()
   }
 
-  createProduct(product: Product) {
-    return this.http.post(`${environment.url_api}`, product)
+  createProduct(data: Product) {
+    return this.firestore.collection(this.COLLECTION_PRODUCTS).add(data);
   }
-  // createProduct(data: Product) {
-  //   return this.firestore.collection('products').add(data);
-  // }
 
-  updateProduct(id: string, changes: Partial<Product>) {
-    return this.http.put(`${environment.url_api}${id}`, changes)
+  updateProduct(documentId: string, data: Partial<Product>) {
+    return this.firestore.collection(this.COLLECTION_PRODUCTS).doc(documentId).set(data);
   }
-  // updateProduct(documentId: string, data: Partial<Product>) {
-  //   return this.firestore.collection('products').doc(documentId).set(data);
-  // }
 
-  deleteProduct(id: string) {
-    return this.http.delete(`${environment.url_api}${id}`)
+  deleteProduct(documentId: string) {
+    return this.firestore.collection(this.COLLECTION_PRODUCTS).doc(documentId).delete();
   }
 }

@@ -6,4 +6,5 @@ export interface Product {
     category: string;
     description: string;
     cant: number;
+    sizes: string[];
 }

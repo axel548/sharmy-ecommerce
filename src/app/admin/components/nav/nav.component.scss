@@ -1,17 +1,112 @@
-.sidenav-container {
+mat-sidenav-content{
+  background-color: #f5f5f5;
   height: 100%;
 }
 
-.sidenav {
+.sidenav{
+  color: white;
+  background: linear-gradient(to right, #450920, #7E103B);
   width: 200px;
+
+  .bx{
+    margin: 0 25px;
+  }
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 10px;
+  .redondus{
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+  }  
 }
 
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+mat-toolbar{
+  background: #fff;
+  color: black;
 }
+
+.nav nav{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav nav .sidebar-button{
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+nav .sidebar-button button{
+  font-size: 35px;
+  margin-right: 10px;
+}
+
+//Begin Profile
+.nav nav .search-box{
+  position: relative;
+  height: 50px;
+  max-width: 550px;
+  width: 100%;
+  margin: 0 50px;
+}
+
+.nav nav .search-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  font-size: 18px;
+  padding: 0 0 0 15px;
+}
+
+.nav nav .search-box .bx-search{
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background: #2697FF;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 4px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  transition: all 0.4 ease;
+}
+//End Search-Box
+
+//Begin Profile
+.nav nav .profile-details{
+  display: flex;
+  align-items: center;
+  background: #F5F6FA;
+  border: 2px solid #EFEEF1;
+  border-radius: 6px;
+  height: 50px;
+  min-width: 100px;
+  padding: 0 15px 0 15px;
+}
+
+nav .profile-details .admin_name{
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 10px;
+  white-space: nowrap;
+}
+
+nav .profile-details span.user{
+  font-size: 25px;
+  color: #333;
+}
+//End Profile

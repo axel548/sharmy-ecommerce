@@ -1,49 +1,87 @@
-<form [formGroup]="form" (ngSubmit)="saveProduct($event)">
+<form [formGroup]="form" (ngSubmit)="saveProduct($event)" class="form">
     <mat-card>
         <mat-card-header>
-            <mat-card-title>Producto</mat-card-title>
+            <mat-card-title>Crear Producto</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+
+            <!-- Begin Row -->
             <div class="row">
                 <div class="col-xs">
-                    <mat-form-field>
-                        <input placeholder="Id" formControlName="id" matInput type="text">
-                    </mat-form-field>
+                    <!-- Input TITLE -->
+                    <mat-form-field appearance="fill"  class="form-field title">
+                        <mat-label>Title</mat-label>
+                        <input matInput formControlName="title">
+                      </mat-form-field>
                 </div>
             </div>
+
+            <!-- Begin Row -->
             <div class="row">
                 <div class="col-xs">
-                    <mat-form-field>
-                        <input placeholder="Title" formControlName="title" matInput type="text">
+                    <!-- Input PRICE -->
+                    <mat-form-field appearance="fill" floatLabel="always" class="form-field precio">
+                        <mat-label>Precio</mat-label>
+                        <input matInput type="number" placeholder="0" formControlName="price">
+                        <span matPrefix>Q&nbsp;</span>
+                        <span matSuffix>.00</span>
                     </mat-form-field>
+
+                    <!-- Input CATEGORY -->
+                    <mat-form-field appearance="fill" class="form-field category">
+                        <mat-label>Categoría</mat-label>
+                        
+                        <mat-select [formControl]="categoryControl">
+                            <mat-option value="kimono">kimono</mat-option>
+                            <mat-option value="falda">falda</mat-option>
+                            <mat-option value="salidabaño">salidabaño</mat-option>
+                            <mat-option value="bikini">bikini</mat-option>
+                            <mat-option value="vestido">vestido</mat-option>
+                            <mat-option value="blusa">blusa</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- Input SIZES -->
+                    <mat-form-field class="example-chip-list" appearance="fill" class="form-field sizes">
+                        <mat-label>Tallas</mat-label>
+                        <mat-chip-list #chipList aria-label="Size selection" >
+                          <mat-chip *ngFor="let size of sizes" [selectable]="selectable"
+                                   [removable]="removable" (removed)="remove(size)">
+                            {{size.name}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                          </mat-chip>
+                          <input placeholder="New size..."
+                                 [matChipInputFor]="chipList"
+                                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                 [matChipInputAddOnBlur]="addOnBlur"
+                                 (matChipInputTokenEnd)="add($event)">
+                        </mat-chip-list>
+                      </mat-form-field>
                 </div>
             </div>
+
+            <!-- Begin Row -->
             <div class="row">
-                <div class="col-xs">
-                    <mat-form-field>
-                        <input placeholder="Price" formControlName="price" matInput type="price">
+                <div class="col-xs items">
+                    <!-- Input DESCRIPTION -->
+                    <mat-form-field appearance="fill" class="form-field description">
+                        <mat-label>Descripción </mat-label>
+                        <textarea matInput rows="15" formControlName="description"></textarea>
                     </mat-form-field>
-                    <div *ngIf="priceField!.errors && priceField!.dirty">
-                        <mat-error *ngIf="priceField!.hasError('required')">el campo es requerido</mat-error>
-                        <mat-error *ngIf="priceField!.hasError('price_invalid')">el precio es invalido</mat-error>
+
+                    <!-- Input UPLOAD IMAGE -->
+                    <div class="upload">
+                        <mat-card class="card-image-upload">
+                            <img *ngIf="(image$ | async) as image" [src]="image" alt="upload image" width="245" height="245">
+                        </mat-card>
+                                        
+                        <input  mat-raised-button type="file" (change)="uploadFile($event)">
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs">
-                    <mat-form-field>
-                        <textarea placeholder="Text" formControlName="description" cols="30" rows="10"
-                            matInput></textarea>
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs">
-                    <img *ngIf="(image$ | async) as image" [src]="image" alt="">
-                    <input type="file" (change)="uploadFile($event)">
-                </div>
-            </div>
         </mat-card-content>
+
+        <!-- BTN UPLOAD PRODUCT -->
         <mat-card-actions>
             <button [disabled]="form.invalid" mat-raised-button type="submit">Guardar</button>
         </mat-card-actions>

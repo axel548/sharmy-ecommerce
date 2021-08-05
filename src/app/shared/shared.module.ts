@@ -11,6 +11,9 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { MaterialModule } from './../material/material.module';
 import { CartPipe } from './pipes/cart/cart.pipe';
+import { LogoutDialogComponent } from './components/logout-dialog/logout-dialog.component';
+import { SnackBarComponent } from './components/snack-bar/snack-bar.component';
+import { BottomSheetComponent } from './components/bottom-sheet/bottom-sheet.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { CartPipe } from './pipes/cart/cart.pipe';
     HeaderComponent,
     FooterComponent,
     CartPipe,
+    LogoutDialogComponent,
+    SnackBarComponent,
+    BottomSheetComponent,
     //CartComponent
   ],
   exports: [

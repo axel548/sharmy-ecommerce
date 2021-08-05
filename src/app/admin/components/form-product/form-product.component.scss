@@ -1,0 +1,32 @@
+mat-card-header{
+    display: flex;
+    justify-content: center;
+}
+
+.form-field.title, .form-field.id{
+    width: 100%;
+}
+
+.form-field.price, .form-field.category {
+    margin: 0 10px;
+}
+
+.form-field.sizes{
+    width: 50%;
+}
+
+.form-field.description {
+    width: 50%;
+}
+.items{
+    display: flex;
+    .upload{
+        width: 40%;
+        margin: 0 20px 10px;
+        .card-image-upload{
+            background-color: white;
+            width: 250px;
+            height: 250px;
+        }
+    }
+}

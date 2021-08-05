@@ -62,4 +62,15 @@
         </div>
     </mat-tab>
 
+    <mat-tab label="Categorias">
+        <mat-tab-group dynamicHeight>
+            <mat-tab label="Short tab">
+                <div class="example-small-box mat-elevation-z4" *ngFor="let product of products">
+                    <div>
+                        {{product.category}}
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-tab>
 </mat-tab-group>

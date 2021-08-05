@@ -43,7 +43,8 @@ export class ProductsComponent implements OnInit {
           price: producto.payload.doc.data()['price'],
           category: producto.payload.doc.data()['category'],
           description: producto.payload.doc.data()['description'],
-          cant: producto.payload.doc.data()['cant']
+          cant: producto.payload.doc.data()['cant'],
+          sizes: producto.payload.doc.data()['sizes'],
         });
       });
     });

@@ -1,33 +1,57 @@
-import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/core/models/order.model';
+import { Product } from 'src/app/core/models/product.model';
+import { ProductsService } from 'src/app/core/services/products/products.service';
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-  /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
+export class DashboardComponent implements OnInit {
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
+  order: Order[] = [];
+  product: Partial<Product>[] = [];
+  totalSales: number = 0
+
+  constructor(
+    private productsService: ProductsService,
+  ) {
+    this.fetchOrders()
+    this.fetchProducts()
+    this.suma()
+    console.log(this.totalSales)
+  }
+
+  ngOnInit(): void {
+  }
+
+  fetchOrders() {
+    this.productsService.getAllOrders().subscribe(Snapshot => {
+      Snapshot.forEach((order: any) => {
+        //push information
+        this.order.push({
+          id: order.payload.doc.id,
+          total: order.payload.doc.data()['total'],
+        });
+      });
+    });
+  }
+  fetchProducts() {
+    this.productsService.getAllProducts().subscribe(Snapshot => {
+      Snapshot.forEach((product: any) => {
+        //push information
+        this.product.push({
+          id: product.payload.doc.id,
+        });
+      });
+    });
+  }
+
+  suma() {
+    this.order.forEach(element => {
+      this.totalSales = element.total
     })
-  );
-
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  }
 }

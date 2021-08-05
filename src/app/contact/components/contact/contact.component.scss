@@ -9,6 +9,14 @@
 //   font-size: 12px;
 // }
 
+.svg-icon{
+	max-width: 12%;
+	margin: 0 5px;
+}
+.svg-icon:hover{
+	filter: invert(8%) sepia(100%) saturate(4000%);
+}
+
 button, input {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -28,7 +36,7 @@ button, input {
 
 .screen {
   position: relative;
-  background: #3e3e3e;
+  background: #FFF;
   border-radius: 15px;
 }
 
@@ -182,6 +190,10 @@ button, input {
   width: 20px;
   height: 20px;
   margin: 0 5px;
+}
+
+.credits{
+	margin: 50px 0;
 }
 
 @media screen and (max-width: 520px) {

@@ -1,30 +1,62 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <div class="logo">
+      <img src="assets/images/logo.jpg" class="redondus" />
+    </div>
     <mat-nav-list>
-      <a mat-list-item routerLink="/admin/create">Crear Producto</a>
-      <a mat-list-item routerLink="/admin/">Home</a>
-      <a mat-list-item routerLink="/admin/table">Inventario</a>
-      <a mat-list-item routerLink="/admin/products">Productos</a>
-      <a mat-list-item (click)="logout()">Cerrar Sesión</a>
+      <a mat-list-item class="sidebar-list-item" routerLink="/admin/">
+        <mat-icon class="bx">dashboard</mat-icon> DashBoard
+      </a>
+      <a mat-list-item class="sidebar-list-item" routerLink="/admin/products">
+        <mat-icon class="bx">inventory_2</mat-icon> Product
+      </a>
+      <a mat-list-item class="sidebar-list-item" routerLink="/admin/">
+        <mat-icon class="bx">list_alt</mat-icon> Order list
+      </a>
+      <a mat-list-item class="sidebar-list-item" routerLink="/admin/">
+        <mat-icon class="bx">pie_chart_outline</mat-icon> Analytics
+      </a>
+      <a mat-list-item class="sidebar-list-item" routerLink="/admin/">
+        <mat-icon class="bx">dns</mat-icon> Stock
+      </a>
+      <a mat-list-item class="sidebar-list-item" routerLink="/admin/">
+        <mat-icon class="bx">groups</mat-icon> Team
+      </a>
+      <a mat-list-item class="sidebar-list-item" routerLink="/admin/">
+        <mat-icon class="bx">chat</mat-icon> Messages
+      </a>
+      <a mat-list-item class="sidebar-list-item" routerLink="/admin/">
+        <mat-icon class="bx">favorite_border</mat-icon> Favorites
+      </a>
+      <a mat-list-item class="sidebar-list-item" routerLink="/admin/">
+        <mat-icon class="bx">settings</mat-icon> Setting
+      </a>
+      <a mat-list-item class="sidebar-list-item last" (click)="openDialog()">
+        <mat-icon class="bx">logout</mat-icon> Log out
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>Sharmy</span>
+    <mat-toolbar class="nav">
+      <nav>
+        <div class="sidebar-button">
+          <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+            *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          </button>
+          <span class="dashboard">Dashboard</span>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="Search...">
+          <span class="material-icons bx-search">search</span>
+        </div>
+        <div class="profile-details">
+          <span class="material-icons user">account_circle</span>
+          <span class="admin_name">Prem Shahi</span>
+        </div>
+      </nav>
     </mat-toolbar>
-    <!-- Add Content Here -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

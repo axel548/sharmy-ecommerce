@@ -21,8 +21,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDividerModule} from '@angular/material/divider';
-
-
+import {MatChipsModule} from '@angular/material/chips';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 @NgModule({
   declarations: [],
@@ -48,6 +50,10 @@ import {MatDividerModule} from '@angular/material/divider';
     MatStepperModule,
     MatTabsModule,
     MatDividerModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatBottomSheetModule,
   ],
   exports: [
     MatButtonModule,
@@ -70,6 +76,10 @@ import {MatDividerModule} from '@angular/material/divider';
     MatStepperModule,
     MatTabsModule,
     MatDividerModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatBottomSheetModule,
   ]
 })
 export class MaterialModule { }

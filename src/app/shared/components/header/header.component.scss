@@ -10,6 +10,7 @@ nav > a.active {
 
 .header-row {
     width: 100%;
+    height: 100%;
 }
 
 .redondus{
@@ -23,4 +24,17 @@ nav{
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 100%;
+    a{
+        padding-top: 4%;
+        height: 100%;
+    }
+}
+.nav{
+    background-color: #A53860;
+}
+
+nav a.active{
+    background-color: #892F50;
+    color: white;
 }

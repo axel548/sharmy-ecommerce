@@ -1,11 +1,11 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
+<mat-toolbar class="nav">
+    <mat-toolbar-row class="cd">
         <div class="row between-xs middle-xs header-row">
             <nav>
-                <img src="assets/images/logo.jpg" alt="" class="redondus">
-                <a mat-button routerLink="/home" routerLinkActive="active" color="basic">Home</a>
-                <a mat-button routerLink="/products" routerLinkActive="active" color="basic">Products</a>
-                <a mat-button routerLink="/contact" routerLinkActive="active" color="basic">Contact</a>
+                <img src="assets/images/logo.jpg"  alt="" class="redondus">
+                <a mat-button routerLink="/home"  routerLinkActive="active" class="bHead">Home</a>
+                <a mat-button routerLink="/products" routerLinkActive="active" class="bHead">Products</a>
+                <a mat-button routerLink="/contact" routerLinkActive="active" class="bHead">Contact</a>
             </nav>
             <a routerLink="/order" mat-raised-button [matBadge]="total$ | async" matBadgeColor="warn">
                 <mat-icon>storefront</mat-icon>

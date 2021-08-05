@@ -2,19 +2,26 @@
     <div class="row" *ngIf="product">
         <div class="image">
             <!-- <mat-card> -->
-                <div class="crop-image">
-                    <img [src]="product.image" alt="">
-                </div>
+            <div class="crop-image">
+                <img [src]="product.image" alt="">
+            </div>
             <!-- </mat-card> -->
         </div>
         <div class="card">
-            <mat-card  class="back-w">
+            <mat-card class="back-w">
                 <mat-card-header>
                     <mat-card-title>{{product.title | uppercase}}</mat-card-title>
                     <mat-card-subtitle style="color: black;">{{product.price | currency}}</mat-card-subtitle>
                 </mat-card-header>
 
                 <mat-card-content>
+                    <p class="description">Tallas disponibles:</p>
+                    <mat-chip-list class="sizes">
+                        <mat-chip class="sizes-chip" *ngFor="let size of product.sizes">
+                            {{size}}
+                        </mat-chip>
+                    </mat-chip-list>
+
                     <p class="description">{{product.description}}</p>
                 </mat-card-content>
                 <mat-card-actions class="container-btn">

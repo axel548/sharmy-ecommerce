@@ -15,6 +15,7 @@ export class CartPipe implements PipeTransform {
   }
 
   transform(product: any, args?: any): any {
+    //That pipe is for delete repetitive products
     var total = 0;
     this.cartService.cart$.subscribe(products => {
       products.forEach((elemento) => {
